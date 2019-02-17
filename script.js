@@ -4,8 +4,8 @@ var ctx = canvas.getContext('2d')
 
 var rightPressed = false
 var leftPressed = false
-var persX = 0
-var persY = 0
+var persX = 30
+var persY = 30
 
 
 
@@ -38,23 +38,21 @@ function keyUpHandler(e) {
 
 function draw()
 {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawStaff(person, persX, persY)
 }
 
 function drawStaff(staff, staffX, staffY) {
-  staff.onload = function() {
-        ctx.drawImage(staff, staffX, staffY)
-    }
+    ctx.drawImage(staff, staffX, staffY)
 }
 
 function processing()
 {
     if (rightPressed)
-        persX += 8
+        persX += 4
     if (leftPressed)
-        persX -= 8
+        persX -= 4
 }
 
-setInterval(processing, 50)
-setInterval(draw, 50)
-
+setInterval(processing, 30)
+setInterval(draw, 10)
