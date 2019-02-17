@@ -36,11 +36,25 @@ function keyUpHandler(e) {
     }
 }
 
+function draw()
+{
+    drawStaff(person, persX, persY)
+}
 
 function drawStaff(staff, staffX, staffY) {
   staff.onload = function() {
-    ctx.drawImage(staff, staffX, staffY)
+        ctx.drawImage(staff, staffX, staffY)
     }
 }
 
-drawStaff(person, 0, 0)
+function processing()
+{
+    if (rightPressed)
+        persX += 8
+    if (leftPressed)
+        persX -= 8
+}
+
+setInterval(processing, 50)
+setInterval(draw, 50)
+
