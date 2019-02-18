@@ -10,57 +10,58 @@ var persX = 30
 var persY = 30
 
 
-
+bg = new Image()
+bg.src = "bg.png"
 
 person = new Image()
 person.src = "person.png"
 
 
 
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("keydown", keyDownHandler, false)
+document.addEventListener("keyup", keyUpHandler, false)
+
 
 
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
-        rightPressed = true;
+        rightPressed = true
     }
     else if(e.key == "Left" || e.key == "ArrowLeft") {
-        leftPressed = true;
+        leftPressed = true
+    }
+    if(e.key == "Up" || e.key == "ArrowUp") {
+        key1 = true
+    }
+    else if(e.key == "Down" || e.key == "ArrowDown") {
+        key2 = true
     }
 }
 
 function keyUpHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
-        rightPressed = false;
+        rightPressed = false
     }
     else if(e.key == "Left" || e.key == "ArrowLeft") {
-        leftPressed = false;
+        leftPressed = false
     }
-}
-/*
-function keyDownHandler(e) {
     if(e.key == "Up" || e.key == "ArrowUp") {
-        key1 = true;
+        key1 = false
     }
     else if(e.key == "Down" || e.key == "ArrowDown") {
-        key2 = true;
+        key2 = false
     }
 }
 
-function keyUpHandler(e) {
-    if(e.key == "Up" || e.key == "ArrowUp") {
-        key1 = false;
-    }
-    else if(e.key == "Down" || e.key == "ArrowDown") {
-        key2 = false;
-    }
-}
-*/
+
+
+
 function draw()
 {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    drawStaff(bg, 0, 0)
     drawStaff(person, persX, persY)
+
 }
 
 function drawStaff(staff, staffX, staffY) {
@@ -80,5 +81,5 @@ function processing()
 
 }
 
-setInterval(processing, 30)
+setInterval(processing, 40)
 setInterval(draw, 10)
