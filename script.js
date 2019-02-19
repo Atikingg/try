@@ -137,7 +137,7 @@ function processing()
     */ 
     
   
-    }
+   
 /*
     if (persX < newX)
           persX++
