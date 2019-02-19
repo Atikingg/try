@@ -10,12 +10,11 @@ var persX = 30
 var persY = 30
 var treeX = 10
 var treeY = 40
-var dx = 4
-var dy = 4
+var dx = 0
+var dy = 0
 var newX = 0
 var newY = 0
-var a = (newX - persX)
-var b = (newY - persY)
+
 var x = 0
 
 
@@ -53,13 +52,32 @@ document.addEventListener("keydown", keyDownHandler, false)
 document.addEventListener("keyup", keyUpHandler, false)
 
 document.addEventListener("click", clickHandler, false)
+document.addEventListener("mousemove", mouseHandler, false)
 
+
+function mouseHandler(e) {
+  mouseX = e.clientX
+  mouseY = e.clientY
+
+
+}
 
 
 function clickHandler(e) {
   newX = e.clientX
   newY = e.clientY
-
+  if (newX - persX < newY - persY) {
+      dx = (newX - persX)/(newY - persY)
+      dy = 1
+  }
+  if (newX - persX > newY - persY) {
+      dx = 1
+      dy = (newY - persY)/(newX - persX)
+  }
+  if (newX - persX == newY - persY) {
+      dx = 1
+      dy = 1
+  }
 
 }
 
@@ -113,6 +131,9 @@ function drawStaff(staff, staffX, staffY) {
 
 function processing()
 {
+    
+    
+  /*
     if (rightPressed && persX + 30 < canvas.width)
         persX += dx
     if (leftPressed && persX > 0)
@@ -121,8 +142,16 @@ function processing()
         persY -= dy
     if (key2 && persY + 40 < canvas.height)
         persY += dy
+<<<<<<< HEAD
 
+////////////////////////////
+=======
+    */ 
+    
+  
+   
 /*
+>>>>>>> 76160708fd55471a85c39d8d86eae475ac0eefbc
     if (persX < newX)
           persX++
     if (persY < newY)
@@ -131,30 +160,51 @@ function processing()
           persX--
     if (persY > newY)
           persY--
-*/
 
+<<<<<<< HEAD
+////////////////////////////
+=======
+  
+>>>>>>> 76160708fd55471a85c39d8d86eae475ac0eefbc
     if (persX < newX && persY < newY) {
-      persY = ((newY - persY) / (newX - persX)) * persX
-      persX++
-      persY++
+      
+      persX += dx
+      persY += dy
 
     }
     if (persX < newX && persY > newY) {
-      pers = ((persY - newY) / (newX - persX)) * persX
-      persX++
-      persY--
+      
+      persX += dx
+      persY -= dy
     }
     if (persX > newX && persY > newY) {
+<<<<<<< HEAD
       pers = ((persY - newY) / (persX - newX)) * persX
-      persX++
+      persX--
       persY--
     }
     if (persX > newX && persY > newY) {
       pers = ((persY - newY) / (newX - persX)) * persX
-      persX++
-      persY--
+      persX--
+      persY++
+    }
+//////////////////////////
+    persX = mouseX - 50
+    persY = mouseY - 50
+=======
+      
+      persX -= dx
+      persY -= dy
+    }
+    if (persX > newX && persY < newY) {
+      
+      persX -= dx
+      persY += dy
     }
     
+  
+   
+>>>>>>> 76160708fd55471a85c39d8d86eae475ac0eefbc
 
 }
 
@@ -165,7 +215,6 @@ function processing()
 
 
 
-setInterval(clickHandler, 40)
 
 setInterval(processing, 30)
 setInterval(draw, 10)
