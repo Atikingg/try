@@ -8,8 +8,15 @@ var key1 = false
 var key2 = false
 var persX = 30
 var persY = 30
+var treeX = 10
+var treeY = 40
 var dx = 4
 var dy = 4
+var newX = 0
+var newY = 0
+var a = (newX - persX)
+var b = (newY - persY)
+var x = 0
 
 
 bg = new Image()
@@ -18,15 +25,43 @@ bg.src = "bg.png"
 person = new Image()
 person.src = "person.png"
 
-tree1 = new Image()
-tree1.src = "tree1.png"
+tree = new Image()
+tree.src = "tree1.png"
+
+/*sprites = new Image()
+sprites.src = "sprites.png"
+sprites.onload = function() {
+  spritesheet()
+  requestAnimationFrame(spritesheet)
+}
+
+
+function spritesheet() {
+
+  x = (x === 100? 0 : x + 48)
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+  ctx.drawImage(sprites, x, 0, 48, 56, 100, 100, 47, 55)
+
+}
+*/
+// width 48
+// height 56
 
 
 
 document.addEventListener("keydown", keyDownHandler, false)
 document.addEventListener("keyup", keyUpHandler, false)
 
+document.addEventListener("click", clickHandler, false)
 
+
+
+function clickHandler(e) {
+  newX = e.clientX
+  newY = e.clientY
+
+
+}
 
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
@@ -60,19 +95,28 @@ function keyUpHandler(e) {
 
 
 
-
 function draw()
 {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    drawStaff(bg, 0, 0)
+    drawStaff(bg, 0, 0, 500, 500)
     drawStaff(person, persX, persY)
-    drawStaff(tree1, 40, 70)
+    drawStaff(tree, treeX, treeY)
+    drawStaff(tree, treeX , treeY + 100)
 
-}
+
+    //spritesheet(sprites, x, 0, 48, 56, 100, 100, 47, 55)
+    
+
+
+
 
 function drawStaff(staff, staffX, staffY) {
     ctx.drawImage(staff, staffX, staffY)
 }
+
+
+}
+
 
 function processing()
 {
@@ -87,5 +131,21 @@ function processing()
 
 }
 
-setInterval(processing, 40)
+function step() {
+
+  if (persX < newX)
+    persX ++
+  if (persY < newY)
+    persY ++
+  if (persX > newX)
+    persX --
+  if (persY > newY)
+    persY --
+
+}
+
+setInterval(step, 25)
+setInterval(clickHandler, 40)
+
+setInterval(processing, 30)
 setInterval(draw, 10)
