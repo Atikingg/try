@@ -15,36 +15,34 @@ var dy = 0
 var newX = 0
 var newY = 0
 
-var x = 0
+
 
 
 bg = new Image()
 bg.src = "bg.png"
 
 person = new Image()
-person.src = "person.png"
+person.src = "spriteshit.png"
 
 tree = new Image()
-tree.src = "tree1.png"
+tree.src = "spriteshit.png"
 
 sprites = new Image()
-sprites.src = "sprites.png"
-sprites.onload = function() {
-  spritesheet()
-  requestAnimationFrame(spritesheet)
-}
+sprites.src = "spriteshit.png"
+//sprites.onload = function() {
+  //spriteshit()
+//}
 
 
-function spritesheet() {
+//function spriteshit() {
 
-  x = (x === 100? 0 : x + 48)
-  ctx.clearRect(0, 0, canvas.width, canvas.height)
-  ctx.drawImage(sprites, x, 0, 48, 56, 100, 100, 47, 55)
+  //var x = (x === 84? 0 : x + 42)
+  //ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-}
+//}
 
-// width 48
-// height 56
+// width 42
+// height 62
 
 
 
@@ -69,6 +67,8 @@ function clickHandler(e) {
 
 
 }
+
+
 
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
@@ -102,17 +102,42 @@ function keyUpHandler(e) {
 
 
 
+
+function drawStaff(staff, cropX, cropY, cropW, cropH, staffX, staffY, staffW, staffH) {
+    ctx.drawImage(staff, cropX, cropY, cropW, cropH, staffX, staffY, staffW, staffH)
+}
+
+
+
+
 function draw()
 {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    drawStaff(bg, 0, 0, 500, 500)
-    drawStaff(person, persX, persY)
-    drawStaff(tree, treeX, treeY)
-    drawStaff(tree, treeX , treeY + 100)
 
-function drawStaff(staff, staffX, staffY) {
-    ctx.drawImage(staff, staffX, staffY)
-}
+
+
+
+
+
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.drawImage(bg, 0, 0, 500, 500)
+    drawStaff(sprites, 0, 62, 42, 62, persX, persY, 42, 62)
+    drawStaff(sprites, 0, 186, 42, 62, 20, 20, 42, 62)
+    drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
@@ -160,8 +185,8 @@ function processing()
           dy = 1
       }
 
-      persX += dx
-      persY += dy
+      persX += 2 * dx
+      persY += 2 * dy
 
     }
 
@@ -181,8 +206,8 @@ function processing()
           dy = 1
       }
 
-      persX += dx
-      persY -= dy
+      persX += 2 * dx
+      persY -= 2 * dy
 
     }
 
@@ -202,8 +227,8 @@ function processing()
           dy = 1
       }
 
-      persX -= dx
-      persY -= dy
+      persX -= 2 * dx
+      persY -= 2 * dy
 
     }
 
@@ -223,14 +248,20 @@ function processing()
           dy = 1
       }
 
-      persX -= dx
-      persY += dy
+      persX -= 2 * dx
+      persY += 2 * dy
     }
 // click
 
 
 
 }
+
+
+
+
+
+
 
 
 
