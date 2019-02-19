@@ -115,16 +115,17 @@ function processing()
       if (newX - persX < newY - persY) {
         dx = (newX - persX)/(newY - persY)
         dy = 1
-    }
+      }
       if (newX - persX > newY - persY) {
         dx = 1
         dy = (newY - persY)/(newX - persX)
-    }
+      }
       if (newX - persX == newY - persY) {
         dx = 1
         dy = 1
+      }
+    
     }
-   
   
   /*
     if (rightPressed && persX + 30 < canvas.width)
