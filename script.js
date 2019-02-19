@@ -135,9 +135,9 @@ function processing()
     if (key2 && persY + 40 < canvas.height)
         persY += dy
      
-    if (clickHandler){
-      persX += dx
-      persY += dy
+    persX += dx
+    persY += dy
+  
     }
 /*
     if (persX < newX)
