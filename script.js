@@ -184,7 +184,6 @@ function processing()
 
 
 
-setInterval(clickHandler, 40)
 
 setInterval(processing, 30)
 setInterval(draw, 10)
