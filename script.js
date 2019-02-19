@@ -53,7 +53,15 @@ document.addEventListener("keydown", keyDownHandler, false)
 document.addEventListener("keyup", keyUpHandler, false)
 
 document.addEventListener("click", clickHandler, false)
+document.addEventListener("mousemove", mouseHandler, false)
 
+
+function mouseHandler(e) {
+  mouseX = e.clientX
+  mouseY = e.clientY
+
+
+}
 
 
 function clickHandler(e) {
@@ -122,7 +130,7 @@ function processing()
     if (key2 && persY + 40 < canvas.height)
         persY += dy
 
-/*
+////////////////////////////
     if (persX < newX)
           persX++
     if (persY < newY)
@@ -131,8 +139,8 @@ function processing()
           persX--
     if (persY > newY)
           persY--
-*/
 
+////////////////////////////
     if (persX < newX && persY < newY) {
       persY = ((newY - persY) / (newX - persX)) * persX
       persX++
@@ -146,15 +154,17 @@ function processing()
     }
     if (persX > newX && persY > newY) {
       pers = ((persY - newY) / (persX - newX)) * persX
-      persX++
+      persX--
       persY--
     }
     if (persX > newX && persY > newY) {
       pers = ((persY - newY) / (newX - persX)) * persX
-      persX++
-      persY--
+      persX--
+      persY++
     }
-    
+//////////////////////////
+    persX = mouseX - 50
+    persY = mouseY - 50
 
 }
 
