@@ -6,8 +6,8 @@ var rightPressed = false
 var leftPressed = false
 var key1 = false
 var key2 = false
-var persX = 30
-var persY = 30
+var persX = 0
+var persY = 0
 var treeX = 10
 var treeY = 40
 var dx = 0
@@ -15,8 +15,8 @@ var dy = 0
 var newX = 0
 var newY = 0
 var x = 0
-var coordX = persX/2
-var coordY = persY/2
+var coordX = persX
+var coordY = persY
 
 
 bg = new Image()
