@@ -66,18 +66,7 @@ function mouseHandler(e) {
 function clickHandler(e) {
   newX = e.clientX
   newY = e.clientY
-  if (newX - persX < newY - persY) {
-      dx = (newX - persX)/(newY - persY)
-      dy = 1
-  }
-  if (newX - persX > newY - persY) {
-      dx = 1
-      dy = (newY - persY)/(newX - persX)
-  }
-  if (newX - persX == newY - persY) {
-      dx = 1
-      dy = 1
-  }
+
 
 }
 
@@ -155,28 +144,89 @@ function processing()
           persY--
 */
 //mouse up down
+
     if (persX < newX && persY < newY) {
 
+      if (newX - persX < newY - persY) {
+          dx = (newX - persX)/(newY - persY)
+          dy = 1
+      }
+      if (newX - persX > newY - persY) {
+          dx = 1
+          dy = (newY - persY)/(newX - persX)
+      }
+      if (newX - persX == newY - persY) {
+          dx = 1
+          dy = 1
+      }
+
       persX += dx
       persY += dy
 
     }
+
+
     if (persX < newX && persY > newY) {
 
+      if (newX - persX < persY - newY) {
+          dx = (newX - persX)/(persY - newY)
+          dy = 1
+      }
+      if (newX - persX > persY - newY) {
+          dx = 1
+          dy = (persY - newY)/(newX - persX)
+      }
+      if (newX - persX == persY - newY) {
+          dx = 1
+          dy = 1
+      }
+
       persX += dx
       persY -= dy
+
     }
+
+
     if (persX > newX && persY > newY) {
+
+      if (persX - newX < persY - newY) {
+          dx = (newX - persX)/(persY - newY)
+          dy = 1
+      }
+      if (persX - newX > persY - newY) {
+          dx = 1
+          dy = (persY - newY)/(persX - newX)
+      }
+      if (persX - newX == persY - newY) {
+          dx = 1
+          dy = 1
+      }
 
       persX -= dx
       persY -= dy
+
     }
+
+
     if (persX > newX && persY < newY) {
+
+      if (persX - newX < newY - persY) {
+          dx = (newX - persX)/(newY - persY)
+          dy = 1
+      }
+      if (persX - newX > newY - persY) {
+          dx = 1
+          dy = (newY - persY)/(persX - newX)
+      }
+      if (persX - newX == newY - persY) {
+          dx = 1
+          dy = 1
+      }
 
       persX -= dx
       persY += dy
     }
-// click 
+// click
 
 
 
