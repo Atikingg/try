@@ -142,7 +142,7 @@ function processing()
         persY -= dy
     if (key2 && persY + 40 < canvas.height)
         persY += dy
-
+//control keys
 */
 /*
     if (persX < newX)
@@ -154,7 +154,7 @@ function processing()
     if (persY > newY)
           persY--
 */
-
+//mouse up down
     if (persX < newX && persY < newY) {
 
       persX += dx
@@ -176,7 +176,7 @@ function processing()
       persX -= dx
       persY += dy
     }
-
+// click 
 
 
 
