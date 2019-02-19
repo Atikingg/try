@@ -131,8 +131,8 @@ function drawStaff(staff, staffX, staffY) {
 
 function processing()
 {
-    
-    
+
+
   /*
     if (rightPressed && persX + 30 < canvas.width)
         persX += dx
@@ -142,16 +142,9 @@ function processing()
         persY -= dy
     if (key2 && persY + 40 < canvas.height)
         persY += dy
-<<<<<<< HEAD
 
-////////////////////////////
-=======
-    */ 
-    
-  
-   
+*/
 /*
->>>>>>> 76160708fd55471a85c39d8d86eae475ac0eefbc
     if (persX < newX)
           persX++
     if (persY < newY)
@@ -160,51 +153,32 @@ function processing()
           persX--
     if (persY > newY)
           persY--
+*/
 
-<<<<<<< HEAD
-////////////////////////////
-=======
-  
->>>>>>> 76160708fd55471a85c39d8d86eae475ac0eefbc
     if (persX < newX && persY < newY) {
-      
+
       persX += dx
       persY += dy
 
     }
     if (persX < newX && persY > newY) {
-      
+
       persX += dx
       persY -= dy
     }
     if (persX > newX && persY > newY) {
-<<<<<<< HEAD
-      pers = ((persY - newY) / (persX - newX)) * persX
-      persX--
-      persY--
-    }
-    if (persX > newX && persY > newY) {
-      pers = ((persY - newY) / (newX - persX)) * persX
-      persX--
-      persY++
-    }
-//////////////////////////
-    persX = mouseX - 50
-    persY = mouseY - 50
-=======
-      
+
       persX -= dx
       persY -= dy
     }
     if (persX > newX && persY < newY) {
-      
+
       persX -= dx
       persY += dy
     }
-    
-  
-   
->>>>>>> 76160708fd55471a85c39d8d86eae475ac0eefbc
+
+
+
 
 }
 
