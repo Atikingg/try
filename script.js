@@ -10,13 +10,13 @@ var persX = 30
 var persY = 30
 var treeX = 10
 var treeY = 40
-var dx = 0
-var dy = 0
+var dx = 4
+var dy = 4
 var newX = 0
 var newY = 0
+var a = (newX - persX)
+var b = (newY - persY)
 var x = 0
-var coordX = persX/2
-var coordY = persY/2
 
 
 bg = new Image()
@@ -59,18 +59,18 @@ document.addEventListener("click", clickHandler, false)
 function clickHandler(e) {
   newX = e.clientX
   newY = e.clientY
-      if (newX - coordX < newY - coordY) {
-        dx = (newX - coordX)/(newY - coordY)
-        dy = 1
-      }
-      if (newX - coordX > newY - coordY) {
-        dx = 1
-        dy = (newY - coordY)/(newX - coordX) 
-      }
-      if (newX - coordX == newY - coordY) {
-        dx = 1
-        dy = 1
-      }
+ if (newX - persX < newY - persY) {
+      dx = (newX - persX)/(newY - persY)
+      dy = 1
+    }
+  if (newX - persX > newY - persY) {
+      dx = 1
+      dy = (newY - persY)/(newX - persX)
+    }
+  if (newX - persX == newY - persY) {
+      dx = 1
+      dy = 1
+    }
 
 }
 
@@ -110,7 +110,7 @@ function draw()
 {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     drawStaff(bg, 0, 0, 500, 500)
-    drawStaff(person, coordX, coordY)
+    drawStaff(person, persX, persY)
     drawStaff(tree, treeX, treeY)
     drawStaff(tree, treeX , treeY + 100)
 
@@ -125,10 +125,8 @@ function drawStaff(staff, staffX, staffY) {
 function processing()
 {
     
-      
     
   
-  /*
     if (rightPressed && persX + 30 < canvas.width)
         persX += dx
     if (leftPressed && persX > 0)
@@ -138,9 +136,9 @@ function processing()
     if (key2 && persY + 40 < canvas.height)
         persY += dy
      
-  */  
-  
     
+  
+    }
 /*
     if (persX < newX)
           persX++
@@ -153,29 +151,26 @@ function processing()
 */
 
   
-    if (coordX < newX && coordY < newY) {
+    if (persX < newX && persY < newY) {
       
-      coordX += dx
-      coordY += dy
+      persX += dx
+      persY += dy
 
     }
-  
-    if (coordX < newX && coordY > newY) {
-     
-      coordX += dx
-      coordY -= dy
-    }
-  
-    if (coordX > newX && coordY > newY) {
+    if (persX < newX && persY > newY) {
       
-      coordX -= dx
-      coordY -= dy
+      persX += dx
+      persY -= dy
     }
-  
-    if (coordX > newX && coordY < newY) {
+    if (persX > newX && persY > newY) {
       
-      coordX -= dx
-      coordY += dy
+      persX -= dx
+      persY -= dy
+    }
+    if (persX > newX && persY < newY) {
+      
+      persX -= dx
+      persY += dy
     }
     
   
