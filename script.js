@@ -15,6 +15,8 @@ var dy = 0
 var newX = 0
 var newY = 0
 var x = 0
+var coordX = persX/2
+var coordY = persY/2
 
 
 bg = new Image()
@@ -57,15 +59,15 @@ document.addEventListener("click", clickHandler, false)
 function clickHandler(e) {
   newX = e.clientX
   newY = e.clientY
-      if (newX - persX < newY - persY) {
-        dx = 2 * (newX - persX)/(newY - persY)
+      if (newX - coordX < newY - coordY) {
+        dx = 2 * (newX - coordX)/(newY - coordY)
         dy = 2 * 1
       }
-      if (newX - persX > newY - persY) {
+      if (newX - coordX > newY - coordY) {
         dx = 2 * 1
-        dy = 2 * (newY - persY)/(newX - persX)
+        dy = 2 * (newY - coordY)/(newX - coordX)
       }
-      if (newX - persX == newY - persY) {
+      if (newX - coordX == newY - coordY) {
         dx = 2 * 1
         dy = 2 * 1
       }
@@ -108,7 +110,7 @@ function draw()
 {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     drawStaff(bg, 0, 0, 500, 500)
-    drawStaff(person, persX, persY)
+    drawStaff(person, coordX, coordY)
     drawStaff(tree, treeX, treeY)
     drawStaff(tree, treeX , treeY + 100)
 
@@ -151,27 +153,28 @@ function processing()
 */
 
   
-    if (persX < newX && persY < newY) {
-      persX += dx
+    if (coordX < newX && coordY < newY) {
+      
+      coordX += dx
       persY += dy
 
     }
   
-    if (persX < newX && persY > newY) {
-      pers = ((persY - newY) / (newX - persX)) * persX
-      persX += dx
+    if (coordX < newX && coordY > newY) {
+     
+      coordX += dx
       persY -= dy
     }
   
-    if (persX > newX && persY > newY) {
-      pers = ((persY - newY) / (persX - newX)) * persX
-      persX -= dx
+    if (coordX > newX && coordY > newY) {
+      
+      coordX -= dx
       persY -= dy
     }
   
-    if (persX > newX && persY < newY) {
-      pers = ((persY - newY) / (newX - persX)) * persX
-      persX -= dx
+    if (coordX > newX && coordY < newY) {
+      
+      coordX -= dx
       persY += dy
     }
     
