@@ -135,8 +135,7 @@ function processing()
     if (key2 && persY + 40 < canvas.height)
         persY += dy
      
-    persX += dx
-    persY += dy
+    
   
     }
 /*
@@ -150,29 +149,28 @@ function processing()
           persY--
 */
 
-  /*
+  
     if (persX < newX && persY < newY) {
-      persY = ((newY - persY) / (newX - persX)) * persX
-      persX++
-      persY++
+      persX += dx
+      persY += dy
 
     }
     if (persX < newX && persY > newY) {
       pers = ((persY - newY) / (newX - persX)) * persX
-      persX++
-      persY--
+      persX += dx
+      persY -= dy
     }
     if (persX > newX && persY > newY) {
       pers = ((persY - newY) / (persX - newX)) * persX
-      persX++
-      persY--
+      persX -= dx
+      persY -= dy
     }
-    if (persX > newX && persY > newY) {
+    if (persX > newX && persY < newY) {
       pers = ((persY - newY) / (newX - persX)) * persX
-      persX++
-      persY--
+      persX -= dx
+      persY += dy
     }
-    */
+    
   
    
 
