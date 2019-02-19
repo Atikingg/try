@@ -28,7 +28,7 @@ person.src = "person.png"
 tree = new Image()
 tree.src = "tree1.png"
 
-/*sprites = new Image()
+sprites = new Image()
 sprites.src = "sprites.png"
 sprites.onload = function() {
   spritesheet()
@@ -43,7 +43,7 @@ function spritesheet() {
   ctx.drawImage(sprites, x, 0, 48, 56, 100, 100, 47, 55)
 
 }
-*/
+
 // width 48
 // height 56
 
@@ -103,13 +103,6 @@ function draw()
     drawStaff(tree, treeX, treeY)
     drawStaff(tree, treeX , treeY + 100)
 
-
-    //spritesheet(sprites, x, 0, 48, 56, 100, 100, 47, 55)
-    
-
-
-
-
 function drawStaff(staff, staffX, staffY) {
     ctx.drawImage(staff, staffX, staffY)
 }
@@ -129,22 +122,49 @@ function processing()
     if (key2 && persY + 40 < canvas.height)
         persY += dy
 
+/*
+    if (persX < newX)
+          persX++
+    if (persY < newY)
+          persY++
+    if (persX > newX)
+          persX--
+    if (persY > newY)
+          persY--
+*/
+
+    if (persX < newX && persY < newY) {
+      persY = ((newY - persY) / (newX - persX)) * persX
+      persX++
+      persY++
+
+    }
+    if (persX < newX && persY > newY) {
+      pers = ((persY - newY) / (newX - persX)) * persX
+      persX++
+      persY--
+    }
+    if (persX > newX && persY > newY) {
+      pers = ((persY - newY) / (persX - newX)) * persX
+      persX++
+      persY--
+    }
+    if (persX > newX && persY > newY) {
+      pers = ((persY - newY) / (newX - persX)) * persX
+      persX++
+      persY--
+    }
+    
+
 }
 
-function step() {
 
-  if (persX < newX)
-    persX ++
-  if (persY < newY)
-    persY ++
-  if (persX > newX)
-    persX --
-  if (persY > newY)
-    persY --
 
-}
 
-setInterval(step, 25)
+
+
+
+
 setInterval(clickHandler, 40)
 
 setInterval(processing, 30)
