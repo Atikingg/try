@@ -58,16 +58,16 @@ function clickHandler(e) {
   newX = e.clientX
   newY = e.clientY
       if (newX - persX < newY - persY) {
-        dx = (newX - persX)/(newY - persY)
-        dy = 1
+        dx = 2 * (newX - persX)/(newY - persY)
+        dy = 2 * 1
       }
       if (newX - persX > newY - persY) {
-        dx = 1
-        dy = (newY - persY)/(newX - persX)
+        dx = 2 * 1
+        dy = 2 * (newY - persY)/(newX - persX)
       }
       if (newX - persX == newY - persY) {
-        dx = 1
-        dy = 1
+        dx = 2 * 1
+        dy = 2 * 1
       }
 
 }
