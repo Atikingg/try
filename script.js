@@ -15,8 +15,8 @@ var dy = 0
 var newX = 0
 var newY = 0
 var x = 0
-var coordX = persX
-var coordY = persY
+var coordX = persX/2
+var coordY = persY/2
 
 
 bg = new Image()
