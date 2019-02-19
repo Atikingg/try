@@ -10,12 +10,11 @@ var persX = 30
 var persY = 30
 var treeX = 10
 var treeY = 40
-var dx = 4
-var dy = 4
+var dx = 0
+var dy = 0
 var newX = 0
 var newY = 0
-var a = (newX - persX)
-var b = (newY - persY)
+
 var x = 0
 
 
@@ -59,18 +58,18 @@ document.addEventListener("click", clickHandler, false)
 function clickHandler(e) {
   newX = e.clientX
   newY = e.clientY
- if (newX - persX < newY - persY) {
+  if (newX - persX < newY - persY) {
       dx = (newX - persX)/(newY - persY)
       dy = 1
-    }
+  }
   if (newX - persX > newY - persY) {
       dx = 1
       dy = (newY - persY)/(newX - persX)
-    }
+  }
   if (newX - persX == newY - persY) {
       dx = 1
       dy = 1
-    }
+  }
 
 }
 
@@ -126,7 +125,7 @@ function processing()
 {
     
     
-  
+  /*
     if (rightPressed && persX + 30 < canvas.width)
         persX += dx
     if (leftPressed && persX > 0)
@@ -135,7 +134,7 @@ function processing()
         persY -= dy
     if (key2 && persY + 40 < canvas.height)
         persY += dy
-     
+    */ 
     
   
     }
