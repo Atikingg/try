@@ -59,7 +59,20 @@ document.addEventListener("click", clickHandler, false)
 function clickHandler(e) {
   newX = e.clientX
   newY = e.clientY
-
+  if ( newX > persX && newY > persY){
+   if (newX - persX < newY - persY) {
+      dx = (newX - persX)/(newY - persY)
+      dy = 1
+    }
+  if (newX - persX > newY - persY) {
+      dx = 1
+      dy = (newY - persY)/(newX - persX)
+    }
+  if (newX - persX == newY - persY) {
+      dx = 1
+      dy = 1
+    }
+  }
 
 }
 
@@ -133,6 +146,7 @@ function processing()
           persY--
 */
 
+  /*
     if (persX < newX && persY < newY) {
       persY = ((newY - persY) / (newX - persX)) * persX
       persX++
@@ -154,7 +168,9 @@ function processing()
       persX++
       persY--
     }
-    
+    */
+  
+   
 
 }
 
