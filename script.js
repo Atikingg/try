@@ -2,10 +2,10 @@
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext('2d')
 
-var rightPressed = false
-var leftPressed = false
-var key1 = false
-var key2 = false
+//var rightPressed = false
+//var leftPressed = false
+//var key1 = false
+//var key2 = false
 var persX = 0
 var persY = 0
 var treeX = 10
@@ -30,10 +30,6 @@ tree.src = "spriteshit.png"
 sprites = new Image()
 sprites.src = "spriteshit.png"
 
-
-
-document.addEventListener("keydown", keyDownHandler, false)
-document.addEventListener("keyup", keyUpHandler, false)
 
 document.addEventListener("click", clickHandler, false)
 
@@ -98,35 +94,43 @@ function processing()
 */
 
 //mouse up down
+    if (persX == newX && persY == newY) {
+        dx = 0
+        dy = 0
+    }
+    if (Math.abs(newX - persX) < Math.abs(newY - persY)) {
+        dx = (newX - persX)/(newY - persY)
+        dy = 1
+    }
+    if (Math.abs(newX - persX) > Math.abs(newY - persY)) {
+        dx = 1
+        dy = (newY - persY)/(newX - persX)
+    }
+    if (Math.abs(newX - persX) == Math.abs(newY - persY)) {
+        dx = 1
+        dy = 1
+    }
 
-  if (Math.abs(newX - persX) < Math.abs(newY - persY)) {
-      dx = (newX - persX)/(newY - persY)
-      dy = 1
-  }
-  if (Math.abs(newX - persX) > Math.abs(newY - persY)) {
-      dx = 1
-      dy = (newY - persY)/(newX - persX)
-  }
-  if (Math.abs(newX - persX) == Math.abs(newY - persY)) {
-      dx = 1
-      dy = 1
-  }
+
+    if (newX < persX && dx > 0)
+      dx = -dx
+
+    if (newY < persY && dy > 0)
+      dy = -dy
 
 
-  if (newX < persX && dx > 0) {
-    dx = -dx
-  }
-  if (newY < persY && dy > 0) {
-    dy = -dy
-  }
-
-   persX += 3 * dx
-   persY += 3 * dy
+    persX +=  dx
+    persY +=  dy
 
 // click
 
 
 }
 
-setInterval(processing, 30)
+
+
+
+
+
+setInterval(processing, 10)
 setInterval(draw, 30)
