@@ -36,16 +36,7 @@ document.addEventListener("keydown", keyDownHandler, false)
 document.addEventListener("keyup", keyUpHandler, false)
 
 document.addEventListener("click", clickHandler, false)
-document.addEventListener("mousemove", mouseHandler, false)
 
-
-function mouseHandler(e) {
-  mouseX = e.clientX
-  mouseY = e.clientY
-
-
-
-}
 
 
 function clickHandler(e) {
@@ -54,48 +45,6 @@ function clickHandler(e) {
 
 
 }
-
-
-
-function keyDownHandler(e) {
-    if(e.key == "Right" || e.key == "ArrowRight") {
-        rightPressed = true
-    }
-    else if(e.key == "Left" || e.key == "ArrowLeft") {
-        leftPressed = true
-    }
-    if(e.key == "Up" || e.key == "ArrowUp") {
-        key1 = true
-    }
-    else if(e.key == "Down" || e.key == "ArrowDown") {
-        key2 = true
-    }
-}
-
-function keyUpHandler(e) {
-    if(e.key == "Right" || e.key == "ArrowRight") {
-        rightPressed = false
-    }
-    else if(e.key == "Left" || e.key == "ArrowLeft") {
-        leftPressed = false
-    }
-    if(e.key == "Up" || e.key == "ArrowUp") {
-        key1 = false
-    }
-    else if(e.key == "Down" || e.key == "ArrowDown") {
-        key2 = false
-    }
-}
-
-
-
-
-function animateSprite() {
-
-
-}
-
-
 
 
 function drawStaff(staff, cropX, cropY, cropW, cropH, staffX, staffY, staffW, staffH) {
