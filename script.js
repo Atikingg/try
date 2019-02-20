@@ -14,7 +14,7 @@ var dx = 0
 var dy = 0
 var newX = 0
 var newY = 0
-
+var x = 0
 
 
 
@@ -29,20 +29,6 @@ tree.src = "spriteshit.png"
 
 sprites = new Image()
 sprites.src = "spriteshit.png"
-//sprites.onload = function() {
-  //spriteshit()
-//}
-
-
-//function spriteshit() {
-
-  //var x = (x === 84? 0 : x + 42)
-  //ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-//}
-
-// width 42
-// height 62
 
 
 
@@ -56,6 +42,7 @@ document.addEventListener("mousemove", mouseHandler, false)
 function mouseHandler(e) {
   mouseX = e.clientX
   mouseY = e.clientY
+
 
 
 }
@@ -103,44 +90,35 @@ function keyUpHandler(e) {
 
 
 
+function animateSprite() {
+
+
+}
+
+
+
+
 function drawStaff(staff, cropX, cropY, cropW, cropH, staffX, staffY, staffW, staffH) {
     ctx.drawImage(staff, cropX, cropY, cropW, cropH, staffX, staffY, staffW, staffH)
 }
 
 
 
-
 function draw()
 {
 
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+  ctx.drawImage(bg, 0, 0, 500, 500)
 
-
-
-
-
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    ctx.drawImage(bg, 0, 0, 500, 500)
-    drawStaff(sprites, 0, 62, 42, 62, persX, persY, 42, 62)
-    drawStaff(sprites, 0, 186, 42, 62, 20, 20, 42, 62)
-    drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  drawStaff(sprites, 0, 186, 42, 62, 20, 20, 42, 62)
+  drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
+  drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
+  drawStaff(sprites, x, 0, 42, 62, persX, persY, 42, 62)
 
 }
+
+
+
 
 
 function processing()
@@ -158,6 +136,7 @@ function processing()
         persY += dy
 //control keys
 */
+
 /*
     if (persX < newX)
           persX++
@@ -168,108 +147,42 @@ function processing()
     if (persY > newY)
           persY--
 */
+
 //mouse up down
+  if (Math.abs(newX - persX) < Math.abs(newY - persY)) {
+      dx = (newX - persX)/(newY - persY)
+      dy = 1
+  }
+  if (Math.abs(newX - persX) > Math.abs(newY - persY)) {
+      dx = 1
+      dy = (newY - persY)/(newX - persX)
+  }
+  if (Math.abs(newX - persX) == Math.abs(newY - persY)) {
+      dx = 1
+      dy = 1
+  }
+  if (persX == newX && persY == newY) {
+    dx = 0
+    dy = 0
+  }
 
-    if (persX < newX && persY < newY) {
+  if (newX < persX && dx > 0) {
+    dx = -dx
+  }
+  if (newY < persY && dy > 0) {
+    dy = -dy
+  }
 
-      if (newX - persX < newY - persY) {
-          dx = (newX - persX)/(newY - persY)
-          dy = 1
-      }
-      if (newX - persX > newY - persY) {
-          dx = 1
-          dy = (newY - persY)/(newX - persX)
-      }
-      if (newX - persX == newY - persY) {
-          dx = 1
-          dy = 1
-      }
+   persX += dx
+   persY += dy
 
-      persX += 2 * dx
-      persY += 2 * dy
-
-    }
-
-
-    if (persX < newX && persY > newY) {
-
-      if (newX - persX < persY - newY) {
-          dx = (newX - persX)/(persY - newY)
-          dy = 1
-      }
-      if (newX - persX > persY - newY) {
-          dx = 1
-          dy = (persY - newY)/(newX - persX)
-      }
-      if (newX - persX == persY - newY) {
-          dx = 1
-          dy = 1
-      }
-
-      persX += 2 * dx
-      persY -= 2 * dy
-
-    }
-
-
-    if (persX > newX && persY > newY) {
-
-      if (persX - newX < persY - newY) {
-          dx = (newX - persX)/(persY - newY)
-          dy = 1
-      }
-      if (persX - newX > persY - newY) {
-          dx = 1
-          dy = (persY - newY)/(persX - newX)
-      }
-      if (persX - newX == persY - newY) {
-          dx = 1
-          dy = 1
-      }
-
-      persX -= 2 * dx
-      persY -= 2 * dy
-
-    }
-
-
-    if (persX > newX && persY < newY) {
-
-      if (persX - newX < newY - persY) {
-          dx = (newX - persX)/(newY - persY)
-          dy = 1
-      }
-      if (persX - newX > newY - persY) {
-          dx = 1
-          dy = (newY - persY)/(persX - newX)
-      }
-      if (persX - newX == newY - persY) {
-          dx = 1
-          dy = 1
-      }
-
-      persX -= 2 * dx
-      persY += 2 * dy
-    }
 // click
-
 
 
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+setInterval(animateSprite, 30)
 setInterval(processing, 30)
-setInterval(draw, 10)
+setInterval(draw, 30)
