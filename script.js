@@ -149,6 +149,7 @@ function processing()
 */
 
 //mouse up down
+
   if (Math.abs(newX - persX) < Math.abs(newY - persY)) {
       dx = (newX - persX)/(newY - persY)
       dy = 1
@@ -161,10 +162,7 @@ function processing()
       dx = 1
       dy = 1
   }
-  if (persX == newX && persY == newY) {
-    dx = 0
-    dy = 0
-  }
+
 
   if (newX < persX && dx > 0) {
     dx = -dx
@@ -173,16 +171,13 @@ function processing()
     dy = -dy
   }
 
-   persX += dx
-   persY += dy
+   persX += 3 * dx
+   persY += 3 * dy
 
 // click
 
 
 }
 
-
-
-setInterval(animateSprite, 30)
 setInterval(processing, 30)
 setInterval(draw, 30)
