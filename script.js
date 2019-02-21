@@ -53,11 +53,11 @@ function draw()
 
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   ctx.drawImage(bg, 0, 0, 500, 500)
-
+  drawStaff(sprites, x, 0, 42, 62, persX, persY, 42, 62)
   drawStaff(sprites, 0, 186, 42, 62, 20, 20, 42, 62)
   drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
   drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
-  drawStaff(sprites, x, 0, 42, 62, persX, persY, 42, 62)
+
 
 }
 
@@ -94,21 +94,24 @@ function processing()
 
 //mouse up down
 
+
     if (persX == newX && persY == newY) {
-        dx = 0
-        dy = 0
+        clearInterval(move)
     }
     if (Math.abs(newX - persX) < Math.abs(newY - persY)) {
         dx = (newX - persX)/(newY - persY)
         dy = 1
+
     }
     if (Math.abs(newX - persX) > Math.abs(newY - persY)) {
         dx = 1
         dy = (newY - persY)/(newX - persX)
+
     }
     if (Math.abs(newX - persX) == Math.abs(newY - persY)) {
         dx = 1
         dy = 1
+
     }
 
 
@@ -119,9 +122,8 @@ function processing()
       dy = -dy
 
 
-    persX +=  3 * dx
-    persY +=  3 * dy
-
+      persX += dx
+      persY += dy
 // click
 
 
@@ -129,8 +131,5 @@ function processing()
 
 
 
-
-
-
-setInterval(processing, 10)
 setInterval(draw, 30)
+setInterval(processing, 5)
