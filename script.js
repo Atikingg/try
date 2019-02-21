@@ -26,7 +26,8 @@ document.addEventListener("click", clickHandler, false)
 document.addEventListener("mousemove", mouseHandler, false)
 
 function mouseHandler(e) {
-  console.info("coordinateX %d coordinateY %d", e.clientX, e.clientY)
+  coordX = e.clientX
+  coordY = e.clientY
 }
 
 
@@ -88,13 +89,10 @@ function draw() {
     persY += dy
 // click
 
-    console.info("x %d y %d newx %d newy %d dx %d dy %d %d", persX, persY, newX, newY, dx, dy)
+    console.info("x %d y %d newx %d newy %d dx %d dy %d coordX %d coordY %d", persX, persY, newX, newY, dx, dy, coordX, coordY)
 
 
 }
-
-
-console.log(persX,persY, newX, newY)
 
 
 function processing()
