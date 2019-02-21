@@ -10,6 +10,8 @@ var dx = 0
 var dy = 0
 var newX = 0
 var newY = 0
+var coordX = 0
+var coordY = 0
 
 
 
@@ -89,7 +91,7 @@ function draw() {
     persY += dy
 // click
 
-    console.info("x %d y %d newx %d newy %d dx %d dy %d coordX %d coordY %d", persX, persY, newX, newY, dx, dy, coordX, coordY)
+    //console.info("x %d y %d newx %d newy %d dx %d dy %d coordX %d coordY %d", persX, persY, newX, newY, dx, dy, coordX, coordY)
 
 
 }
