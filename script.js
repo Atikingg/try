@@ -94,6 +94,7 @@ function processing()
 */
 
 //mouse up down
+
     if (persX == newX && persY == newY) {
         dx = 0
         dy = 0
@@ -119,8 +120,8 @@ function processing()
       dy = -dy
 
 
-    persX +=  dx
-    persY +=  dy
+    persX +=  3 * dx
+    persY +=  3 * dy
 
 // click
 
