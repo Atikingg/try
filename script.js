@@ -1,6 +1,10 @@
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext('2d')
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bd2041a480690aecb981a8b376d5e4c6fa476ee8
 var persX = 0
 var persY = 0
 var treeX = 10
@@ -9,6 +13,11 @@ var dx = 0
 var dy = 0
 var newX = 0
 var newY = 0
+<<<<<<< HEAD
+
+=======
+>>>>>>> bd2041a480690aecb981a8b376d5e4c6fa476ee8
+
 
 
 
@@ -16,18 +25,16 @@ var newY = 0
 bg = new Image()
 bg.src = "bg.png"
 
-person = new Image()
-person.src = "spriteshit.png"
-
-tree = new Image()
-tree.src = "spriteshit.png"
-
 sprites = new Image()
 sprites.src = "spriteshit.png"
 
 
 document.addEventListener("click", clickHandler, false)
+document.addEventListener("mousemove", mouseHandler, false)
 
+function mouseHandler(e) {
+  console.info("coordinateX %d coordinateY %d", e.clientX, e.clientY)
+}
 
 
 function clickHandler(e) {
@@ -44,8 +51,7 @@ function drawStaff(staff, cropX, cropY, cropW, cropH, staffX, staffY, staffW, st
 
 
 
-function draw()
-{
+function draw() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   ctx.drawImage(bg, 0, 0, 500, 500)
@@ -54,10 +60,22 @@ function draw()
   drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
   drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
 
+<<<<<<< HEAD
 /*
+=======
 
+  var a = Math.abs(newX - persX)
+>>>>>>> bd2041a480690aecb981a8b376d5e4c6fa476ee8
+
+  
   if (persX == newX && persY == newY) {
+<<<<<<< HEAD
 
+=======
+    dx = 0
+    dy = 0
+    
+>>>>>>> bd2041a480690aecb981a8b376d5e4c6fa476ee8
   }
   if (Math.abs(newX - persX) < Math.abs(newY - persY)) {
       dx = (newX - persX)/(newY - persY)
@@ -69,11 +87,9 @@ function draw()
       dy = (newY - persY)/(newX - persX)
 
   }
-  if (Math.abs(newX - persX) == Math.abs(newY - persY)) {
-      dx = 1
-      dy = 1
-
-  }
+ // if (Math.abs(newX - persX) == Math.abs(newY - persY)) {
+    //  dx = 1
+     // dy = 1 }
 
 
   if (newX < persX && dx > 0)
@@ -87,7 +103,7 @@ function draw()
     persY += dy
 // click
 
-    console.log(persX,persY, newX, newY)
+    console.info("x %d y %d newx %d newy %d dx %d dy %d %d", persX, persY, newX, newY, dx, dy, a)
 
 */
 }
@@ -131,3 +147,4 @@ function processing()
 
 setInterval(draw, 5)
 //setInterval(processing, 5)
+
