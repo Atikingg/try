@@ -59,6 +59,41 @@ function draw()
   drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
 
 
+
+  if (persX == newX && persY == newY) {
+      clearInterval(move)
+  }
+  if (Math.abs(newX - persX) < Math.abs(newY - persY)) {
+      dx = (newX - persX)/(newY - persY)
+      dy = 1
+
+  }
+  if (Math.abs(newX - persX) > Math.abs(newY - persY)) {
+      dx = 1
+      dy = (newY - persY)/(newX - persX)
+
+  }
+  if (Math.abs(newX - persX) == Math.abs(newY - persY)) {
+      dx = 1
+      dy = 1
+
+  }
+
+
+  if (newX < persX && dx > 0)
+    dx = -dx
+
+  if (newY < persY && dy > 0)
+    dy = -dy
+
+
+    persX += dx
+    persY += dy
+// click
+
+    console.log(persX,persY, newX, newY)
+
+
 }
 
 
@@ -94,42 +129,9 @@ function processing()
 
 //mouse up down
 
-
-    if (persX == newX && persY == newY) {
-        clearInterval(move)
-    }
-    if (Math.abs(newX - persX) < Math.abs(newY - persY)) {
-        dx = (newX - persX)/(newY - persY)
-        dy = 1
-
-    }
-    if (Math.abs(newX - persX) > Math.abs(newY - persY)) {
-        dx = 1
-        dy = (newY - persY)/(newX - persX)
-
-    }
-    if (Math.abs(newX - persX) == Math.abs(newY - persY)) {
-        dx = 1
-        dy = 1
-
-    }
-
-
-    if (newX < persX && dx > 0)
-      dx = -dx
-
-    if (newY < persY && dy > 0)
-      dy = -dy
-
-
-      persX += dx
-      persY += dy
-// click
-
-
 }
 
 
 
 setInterval(draw, 30)
-setInterval(processing, 5)
+//setInterval(processing, 5)
