@@ -68,7 +68,7 @@ function draw()
     //  dx = 1
      // dy = 1
 
-  }
+  
 
 
   if (newX < persX && dx > 0)
