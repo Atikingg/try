@@ -82,7 +82,7 @@ function draw()
     persY += dy
 // click
 
-    console.log(dx, dy)
+    console.info("dx %d dy %d", dx, dy)
 
 
 }
