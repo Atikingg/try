@@ -14,6 +14,7 @@ var newY = 0
 
 
 
+
 bg = new Image()
 bg.src = "bg.png"
 
@@ -22,7 +23,11 @@ sprites.src = "spriteshit.png"
 
 
 document.addEventListener("click", clickHandler, false)
+document.addEventListener("mousemove", mouseHandler, false)
 
+function mouseHandler(e) {
+  console.info("coordinateX %d coordinateY %d", e.clientX, e.clientY)
+}
 
 
 function clickHandler(e) {
@@ -39,8 +44,7 @@ function drawStaff(staff, cropX, cropY, cropW, cropH, staffX, staffY, staffW, st
 
 
 
-function draw()
-{
+function draw() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   ctx.drawImage(bg, 0, 0, 500, 500)
@@ -50,8 +54,12 @@ function draw()
   drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
 
 
+  var a = Math.abs(newX - persX)
 
+  
   if (persX == newX && persY == newY) {
+    dx = 0
+    dy = 0
     
   }
   if (Math.abs(newX - persX) < Math.abs(newY - persY)) {
@@ -66,9 +74,7 @@ function draw()
   }
  // if (Math.abs(newX - persX) == Math.abs(newY - persY)) {
     //  dx = 1
-     // dy = 1
-
-  
+     // dy = 1 }
 
 
   if (newX < persX && dx > 0)
@@ -82,7 +88,7 @@ function draw()
     persY += dy
 // click
 
-    console.info("dx %d dy %d", dx, dy)
+    console.info("x %d y %d newx %d newy %d dx %d dy %d %d", persX, persY, newX, newY, dx, dy, a)
 
 
 }
@@ -126,3 +132,4 @@ function processing()
 
 setInterval(draw, 30)
 //setInterval(processing, 5)
+
