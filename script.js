@@ -64,9 +64,9 @@ function draw()
       dy = (newY - persY)/(newX - persX)
 
   }
-  if (Math.abs(newX - persX) == Math.abs(newY - persY)) {
-      dx = 1
-      dy = 1
+ // if (Math.abs(newX - persX) == Math.abs(newY - persY)) {
+    //  dx = 1
+     // dy = 1
 
   }
 
