@@ -1,10 +1,6 @@
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext('2d')
 
-//var rightPressed = false
-//var leftPressed = false
-//var key1 = false
-//var key2 = false
 var persX = 0
 var persY = 0
 var treeX = 10
@@ -13,7 +9,7 @@ var dx = 0
 var dy = 0
 var newX = 0
 var newY = 0
-var x = 0
+
 
 
 
@@ -53,15 +49,15 @@ function draw()
 
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   ctx.drawImage(bg, 0, 0, 500, 500)
-  drawStaff(sprites, x, 0, 42, 62, persX, persY, 42, 62)
+  drawStaff(sprites, 0, 0, 42, 62, persX, persY, 42, 62)
   drawStaff(sprites, 0, 186, 42, 62, 20, 20, 42, 62)
   drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
   drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
 
-
+/*
 
   if (persX == newX && persY == newY) {
-    
+
   }
   if (Math.abs(newX - persX) < Math.abs(newY - persY)) {
       dx = (newX - persX)/(newY - persY)
@@ -93,11 +89,11 @@ function draw()
 
     console.log(persX,persY, newX, newY)
 
-
+*/
 }
 
 
-
+console.log(persX,persY, newX, newY)
 
 
 function processing()
@@ -133,5 +129,5 @@ function processing()
 
 
 
-setInterval(draw, 30)
+setInterval(draw, 5)
 //setInterval(processing, 5)
