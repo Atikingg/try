@@ -91,7 +91,7 @@ function draw()
     persY += dy
 // click
 
-    console.log(persX,persY, newX, newY)
+    console.log("x:" + persX, "y:" + persY, newX, newY, dx, dy)
 
 
 }
