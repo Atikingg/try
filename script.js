@@ -61,7 +61,7 @@ function draw()
 
 
   if (persX == newX && persY == newY) {
-      clearInterval(move)
+    
   }
   if (Math.abs(newX - persX) < Math.abs(newY - persY)) {
       dx = (newX - persX)/(newY - persY)
