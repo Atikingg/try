@@ -19,9 +19,6 @@ var newY = 0
 bg = new Image()
 bg.src = "bg.png"
 
-square = new Image()
-square.src = "square.png"
-
 sprites = new Image()
 sprites.src = "spriteshit.png"
 
@@ -53,14 +50,12 @@ function draw() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   ctx.drawImage(bg, 0, 0, 500, 500)
-  drawStaff(square, 0, 0, 10, 10, persX, persY, 10, 10)
-  //drawStaff(sprites, 0, 186, 42, 62, 20, 20, 42, 62)
-  //drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
-  //drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
+  drawStaff(sprites, 0, 0, 42, 62, persX, persY, 42, 62)
+  drawStaff(sprites, 0, 186, 42, 62, 20, 20, 42, 62)
+  drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
+  drawStaff(sprites, 0, 188, 42, 62, 20, 100, 42, 62)
 
 
-
-  //for (persX; persX < =)
 
 
   if (persX == newX && persY == newY) {
